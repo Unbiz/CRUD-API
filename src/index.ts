@@ -5,6 +5,11 @@ import { nonExist } from './routes/non-exist.js';
 import { postUser } from './routes/postUser.js';
 import { putUser } from './routes/putUser.js';
 import { sendServerErrorResponse } from './utils.js';
+import process from 'process';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const port = process.env.PORT || 8080;
 
 http
   .createServer((req, res) => {
@@ -34,6 +39,6 @@ http
       sendServerErrorResponse(res);
     }
   })
-  .listen(8080);
+  .listen(port);
 
-console.log('Server running at http://localhost:8080/');
+console.log(`Server running at http://localhost:${port}/`);
