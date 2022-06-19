@@ -24,6 +24,7 @@ if (cluster.isPrimary) {
   });
 } else {
   const id = cluster.worker?.id;
+  const port = process.env.PORT;
 
   http
     .createServer((req, res) => {
@@ -54,7 +55,7 @@ if (cluster.isPrimary) {
         sendServerErrorResponse(res);
       }
     })
-    .listen(8080);
+    .listen(port);
 
   console.log(`Worker: ${id}, pid: ${process.pid}`);
 }
