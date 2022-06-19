@@ -6,6 +6,7 @@
   "scripts": {
     "start:dev": "nodemon src/index.ts",
     "start:prod": "npm run toJs && npm run build && npm run prod",
+    "start:multi": "nodemon src/cluster.ts",
     "prod": "cross-env NODE_ENV=production node bundle/main.cjs",
     "toJs": "tsc",
     "build": "webpack"

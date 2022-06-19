@@ -6,7 +6,7 @@ import { postUser } from './routes/postUser.js';
 import { putUser } from './routes/putUser.js';
 import { sendServerErrorResponse } from './utils.js';
 
-const server = http
+http
   .createServer((req, res) => {
     try {
       switch (req.method) {
@@ -35,9 +35,5 @@ const server = http
     }
   })
   .listen(8080);
-
-server.on('error', (err) => {
-  console.error(err);
-});
 
 console.log('Server running at http://localhost:8080/');
